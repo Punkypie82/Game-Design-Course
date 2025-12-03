@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://1k71wea1dh1i"]
+
+[ext_resource type="Texture2D" uid="uid://bg13hqv8cby4i" path="res://assets/Sprites/tiles/Cloud Tileset.png" id="1_fik4x"]
+[ext_resource type="Script" path="res://scripts/fog.gd" id="1_jr2qb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5g84"]
+size = Vector2(120, 250)
+
+[node name="Fog" type="Area2D"]
+z_index = 2
+collision_mask = 2
+script = ExtResource("1_jr2qb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4.3, 4.3)
+texture = ExtResource("1_fik4x")
+region_enabled = true
+region_rect = Rect2(32, 64, 32, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h5g84")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

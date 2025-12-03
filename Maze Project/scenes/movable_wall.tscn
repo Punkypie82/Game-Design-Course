@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://beraxjskjyo1m"]
+
+[ext_resource type="Script" path="res://scripts/movable_wall.gd" id="1_f00vq"]
+[ext_resource type="Texture2D" uid="uid://3yo1cxde3jnm" path="res://assets/Sprites/tiles/Set 3.5.png" id="1_qhvn1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s186"]
+atlas = ExtResource("1_qhvn1")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwmps"]
+atlas = ExtResource("1_qhvn1")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gymtf"]
+atlas = ExtResource("1_qhvn1")
+region = Rect2(96, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca4uf"]
+atlas = ExtResource("1_qhvn1")
+region = Rect2(144, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w26qh"]
+atlas = ExtResource("1_qhvn1")
+region = Rect2(0, 16, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovcqc"]
+atlas = ExtResource("1_qhvn1")
+region = Rect2(48, 16, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jjnae"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s186")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwmps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gymtf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca4uf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w26qh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovcqc")
+}],
+"loop": false,
+"name": &"fall",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qh8j6"]
+size = Vector2(46, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bd1b2"]
+size = Vector2(46, 24)
+
+[node name="MovableWall" type="RigidBody2D"]
+z_index = 1
+y_sort_enabled = true
+gravity_scale = 0.0
+script = ExtResource("1_f00vq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jjnae")
+animation = &"fall"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_qh8j6")
+
+[node name="DetectionZone" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_bd1b2")
+
+[connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
+[connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]

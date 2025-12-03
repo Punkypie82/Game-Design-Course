@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqny5bl2cws8k"]
+
+[ext_resource type="Script" path="res://scripts/cell.gd" id="1_hlxwg"]
+[ext_resource type="Texture2D" uid="uid://pb4jrrp10aw5" path="res://assets/Sprites/tiles/Set 1-new.png" id="2_mtn3w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mar0d"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spv1l"]
+size = Vector2(48, 43)
+
+[node name="Cell" type="Node2D"]
+z_index = -1
+script = ExtResource("1_hlxwg")
+
+[node name="Detection" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="Broken" type="Sprite2D" parent="Detection"]
+visible = false
+texture = ExtResource("2_mtn3w")
+region_enabled = true
+region_rect = Rect2(300, 195, 48, 48)
+
+[node name="Crumbled" type="Sprite2D" parent="Detection"]
+visible = false
+texture = ExtResource("2_mtn3w")
+region_enabled = true
+region_rect = Rect2(300, 147, 48, 48)
+
+[node name="Healthy" type="Sprite2D" parent="Detection"]
+texture = ExtResource("2_mtn3w")
+region_enabled = true
+region_rect = Rect2(76, 19, 48, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+z_index = 1
+shape = SubResource("RectangleShape2D_mar0d")
+
+[node name="Destruction" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Destruction"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_spv1l")
+disabled = true
+
+[connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://cs2p2i5cchgkn"]
+
+[ext_resource type="Script" path="res://scripts/discovery_clue.gd" id="1_5gjp3"]
+[ext_resource type="Texture2D" uid="uid://djcqnxlkus13m" path="res://assets/Sprites/tiles/Green Effect and Bullet 16x16.png" id="1_k1t6k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rsfv"]
+atlas = ExtResource("1_k1t6k")
+region = Rect2(480, 145, 16, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmcom"]
+atlas = ExtResource("1_k1t6k")
+region = Rect2(496, 145, 16, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccxfi"]
+atlas = ExtResource("1_k1t6k")
+region = Rect2(512, 145, 16, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnbpt"]
+atlas = ExtResource("1_k1t6k")
+region = Rect2(528, 145, 16, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lf43"]
+atlas = ExtResource("1_k1t6k")
+region = Rect2(544, 145, 16, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnpvp"]
+atlas = ExtResource("1_k1t6k")
+region = Rect2(560, 145, 16, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xoib1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rsfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmcom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccxfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnbpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lf43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnpvp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m43vj"]
+size = Vector2(48, 20)
+
+[node name="DiscoveryClue" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_5gjp3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xoib1")
+autoplay = "default"
+frame = 3
+frame_progress = 0.237545
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 0)
+sprite_frames = SubResource("SpriteFrames_xoib1")
+autoplay = "default"
+frame = 3
+frame_progress = 0.237545
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-16, 0)
+sprite_frames = SubResource("SpriteFrames_xoib1")
+autoplay = "default"
+frame = 3
+frame_progress = 0.237545
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_m43vj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

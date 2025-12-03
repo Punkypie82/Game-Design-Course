@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd3i6gpsggeb4"]
+
+[ext_resource type="Script" path="res://scripts/match_slot.gd" id="1_tpwsr"]
+[ext_resource type="Texture2D" uid="uid://categg8ccq3xn" path="res://assets/Sprites/tiles/match.png" id="2_isp08"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8eerm"]
+size = Vector2(28, 2)
+
+[node name="MatchSlot" type="StaticBody2D" groups=["dropable"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_tpwsr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8eerm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.266667)
+texture = ExtResource("2_isp08")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ee5p7dyeink7"]
+
+[ext_resource type="Texture2D" uid="uid://ybfviykk1imp" path="res://assets/Sprites/tiles/panel.png" id="1_e6036"]
+[ext_resource type="Script" path="res://scripts/panel_gui.gd" id="1_npobi"]
+
+[node name="PanelGUI" type="Control"]
+z_index = 2
+custom_minimum_size = Vector2(985, 430)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1065.0
+offset_bottom = 560.0
+script = ExtResource("1_npobi")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 213.0
+offset_bottom = 112.0
+scale = Vector2(5, 5)
+texture = ExtResource("1_e6036")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
