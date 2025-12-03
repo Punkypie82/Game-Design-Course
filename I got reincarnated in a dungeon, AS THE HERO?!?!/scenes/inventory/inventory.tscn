@@ -1,0 +1,137 @@
+[gd_scene load_steps=9 format=3 uid="uid://bm0vlp4j2ap6w"]
+
+[ext_resource type="PackedScene" uid="uid://dt8cuy83fhojn" path="res://scenes/GUI/panel_gui.tscn" id="1_cyoyf"]
+[ext_resource type="Script" path="res://scripts/inventory/inventory.gd" id="1_f7f6h"]
+[ext_resource type="PackedScene" uid="uid://duywuntnhg3v6" path="res://scenes/inventory/inventory_slot.tscn" id="2_rq7sy"]
+[ext_resource type="Script" path="res://scripts/inventory/inventory_ui.gd" id="3_5ixs0"]
+[ext_resource type="Resource" uid="uid://bdc5hbpaj5dai" path="res://resources/inventory/player_inventory.tres" id="4_scsk5"]
+[ext_resource type="FontFile" uid="uid://8rwpnqvox0uj" path="res://fonts/PixelOperator8-Bold.ttf" id="6_8vt6k"]
+[ext_resource type="FontFile" uid="uid://d242n1riswosw" path="res://fonts/PixelOperator8.ttf" id="7_grjmk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tkprd"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 4.0
+
+[node name="Inventory" type="CanvasLayer"]
+process_mode = 3
+offset = Vector2(150, 100)
+transform = Transform2D(1, 0, 0, 1, 150, 100)
+script = ExtResource("1_f7f6h")
+
+[node name="PanelGUI" parent="." instance=ExtResource("1_cyoyf")]
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelGUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -506.0
+offset_top = -332.0
+offset_right = -286.0
+offset_bottom = -208.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+theme_override_styles/panel = SubResource("StyleBoxTexture_tkprd")
+
+[node name="GridContainer" type="GridContainer" parent="PanelGUI/PanelContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+columns = 5
+script = ExtResource("3_5ixs0")
+data = ExtResource("4_scsk5")
+
+[node name="InventorySlot" parent="PanelGUI/PanelContainer/GridContainer" instance=ExtResource("2_rq7sy")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="PanelGUI/PanelContainer/GridContainer" instance=ExtResource("2_rq7sy")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="PanelGUI/PanelContainer/GridContainer" instance=ExtResource("2_rq7sy")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="PanelGUI/PanelContainer/GridContainer" instance=ExtResource("2_rq7sy")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="PanelGUI/PanelContainer/GridContainer" instance=ExtResource("2_rq7sy")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="PanelGUI/PanelContainer/GridContainer" instance=ExtResource("2_rq7sy")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="PanelGUI/PanelContainer/GridContainer" instance=ExtResource("2_rq7sy")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="PanelGUI/PanelContainer/GridContainer" instance=ExtResource("2_rq7sy")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="PanelGUI/PanelContainer/GridContainer" instance=ExtResource("2_rq7sy")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="PanelGUI/PanelContainer/GridContainer" instance=ExtResource("2_rq7sy")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="PanelGUI/PanelContainer/GridContainer" instance=ExtResource("2_rq7sy")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="PanelGUI/PanelContainer/GridContainer" instance=ExtResource("2_rq7sy")]
+layout_mode = 2
+
+[node name="InventorySlot13" parent="PanelGUI/PanelContainer/GridContainer" instance=ExtResource("2_rq7sy")]
+layout_mode = 2
+
+[node name="InventorySlot14" parent="PanelGUI/PanelContainer/GridContainer" instance=ExtResource("2_rq7sy")]
+layout_mode = 2
+
+[node name="InventorySlot15" parent="PanelGUI/PanelContainer/GridContainer" instance=ExtResource("2_rq7sy")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelGUI"]
+modulate = Color(1, 1, 1, 0.839216)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -378.0
+offset_top = -476.0
+offset_right = 357.0
+offset_bottom = -405.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("6_8vt6k")
+theme_override_font_sizes/font_size = 70
+text = "[Inventory]"
+
+[node name="ItemDescription" type="Label" parent="PanelGUI"]
+modulate = Color(1, 1, 1, 0.839216)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -442.0
+offset_top = -244.0
+offset_right = 438.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("7_grjmk")
+theme_override_font_sizes/font_size = 60
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[editable path="PanelGUI/PanelContainer/GridContainer/InventorySlot15"]

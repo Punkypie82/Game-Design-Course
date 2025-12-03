@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://biye6ottncdmd"]
+
+[ext_resource type="Script" path="res://scripts/inventory/item_effects/item_effect.gd" id="1_4verl"]
+[ext_resource type="Script" path="res://scripts/inventory/item_data.gd" id="2_a7q1y"]
+[ext_resource type="Script" path="res://scripts/inventory/item_effects/item_effect_goblin_ear.gd" id="2_e11wm"]
+[ext_resource type="Texture2D" uid="uid://dhw0kju7gn7xm" path="res://assets/sprites/shop/goblin_ear.png" id="3_2n61p"]
+
+[sub_resource type="Resource" id="Resource_ev4qj"]
+script = ExtResource("2_e11wm")
+conversion_rate = 100
+use_description = ""
+
+[resource]
+script = ExtResource("2_a7q1y")
+name = "Goblin Ear"
+description = "This Item can be crafted into 100 coins"
+price = 20
+price_multiplier = 1.3
+max_price = 40
+texture = ExtResource("3_2n61p")
+effects = Array[ExtResource("1_4verl")]([SubResource("Resource_ev4qj")])

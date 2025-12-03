@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://q5tlpts65pqt"
+path="res://.godot/imported/jrpg-game-slime-bumping-a-dps73vx3 (mp3cut.net).mp3-d5d1f15f7f10b1e9623b008dc5ffe642.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/slime_enemy/jrpg-game-slime-bumping-a-dps73vx3 (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/jrpg-game-slime-bumping-a-dps73vx3 (mp3cut.net).mp3-d5d1f15f7f10b1e9623b008dc5ffe642.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

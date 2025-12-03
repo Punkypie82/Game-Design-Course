@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://bn5w7g7lw7218"]
+
+[ext_resource type="Script" path="res://scripts/inventory/item_effects/item_effect.gd" id="1_p2hae"]
+[ext_resource type="Script" path="res://scripts/inventory/item_effects/item_effect_slime_core.gd" id="2_gflg6"]
+[ext_resource type="Script" path="res://scripts/inventory/item_data.gd" id="2_phqt0"]
+[ext_resource type="Texture2D" uid="uid://bda60c1e0kuya" path="res://assets/sprites/shop/items.png" id="3_ky1sl"]
+
+[sub_resource type="Resource" id="Resource_ig4qq"]
+script = ExtResource("2_gflg6")
+conversion_rate = 10
+use_description = ""
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbb5q"]
+atlas = ExtResource("3_ky1sl")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("2_phqt0")
+name = "Slime Core"
+description = "This Item can be crafted into 10 coins"
+price = 20
+price_multiplier = 1.3
+max_price = 40
+texture = SubResource("AtlasTexture_mbb5q")
+effects = Array[ExtResource("1_p2hae")]([SubResource("Resource_ig4qq")])

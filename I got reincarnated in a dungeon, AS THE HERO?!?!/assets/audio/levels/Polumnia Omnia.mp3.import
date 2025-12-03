@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://856ntjqe5q5y"
+path="res://.godot/imported/Polumnia Omnia.mp3-4bf8bfbb39c8945e713b2d46c8896410.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/levels/Polumnia Omnia.mp3"
+dest_files=["res://.godot/imported/Polumnia Omnia.mp3-4bf8bfbb39c8945e713b2d46c8896410.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

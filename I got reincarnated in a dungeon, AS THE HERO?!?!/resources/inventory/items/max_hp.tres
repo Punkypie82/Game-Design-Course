@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://curuyqt3yjvom"]
+
+[ext_resource type="Script" path="res://scripts/inventory/item_effects/item_effect.gd" id="1_ixkb8"]
+[ext_resource type="Script" path="res://scripts/inventory/item_effects/item_effect_max_health.gd" id="3_ye8ja"]
+[ext_resource type="Script" path="res://scripts/inventory/item_data.gd" id="4_7m1vo"]
+[ext_resource type="Texture2D" uid="uid://c6q2y8xww7tei" path="res://assets/sprites/shop/Ultimate Health potion.png" id="5_0iigb"]
+
+[sub_resource type="Resource" id="Resource_vrqvm"]
+script = ExtResource("3_ye8ja")
+max_heal_amount = 10
+heal_amount = 25
+use_description = ""
+
+[resource]
+script = ExtResource("4_7m1vo")
+name = "Ultimate Health Potion"
+description = "+10 Max Health
++25 Health"
+price = 75
+price_multiplier = 1.2
+max_price = 300
+texture = ExtResource("5_0iigb")
+effects = Array[ExtResource("1_ixkb8")]([SubResource("Resource_vrqvm")])

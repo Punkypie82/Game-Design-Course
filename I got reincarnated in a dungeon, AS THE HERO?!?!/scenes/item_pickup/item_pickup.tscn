@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://ffc0qlh2fgna"]
+
+[ext_resource type="Script" path="res://scripts/item_pickup/item_pickup.gd" id="1_bb4mw"]
+[ext_resource type="Resource" uid="uid://bdmsyceep6ad5" path="res://resources/inventory/items/health.tres" id="2_os5kv"]
+[ext_resource type="Texture2D" uid="uid://jy4u06nawx5f" path="res://assets/sprites/shop/Health potion.png" id="3_rcq8l"]
+[ext_resource type="Texture2D" uid="uid://5qidx5u1bt38" path="res://assets/sprites/shop/Shadow.png" id="3_wa4y2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jcatm"]
+
+[sub_resource type="Animation" id="Animation_hwf6a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20, -20)]
+}
+
+[sub_resource type="Animation" id="Animation_7ktcn"]
+resource_name = "default"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.55, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(-20, -20), Vector2(-20, -26), Vector2(-20, -20), Vector2(-20, -23), Vector2(-20, -20), Vector2(-20, -21), Vector2(-20, -20)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e7h0q"]
+_data = {
+"RESET": SubResource("Animation_hwf6a"),
+"default": SubResource("Animation_7ktcn")
+}
+
+[node name="ItemPickup" type="CharacterBody2D"]
+z_index = 1
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 16
+motion_mode = 1
+script = ExtResource("1_bb4mw")
+item_data = ExtResource("2_os5kv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_jcatm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_rcq8l")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.588235)
+position = Vector2(0, 7)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_wa4y2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jcatm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e7h0q")
+}
+autoplay = "default"

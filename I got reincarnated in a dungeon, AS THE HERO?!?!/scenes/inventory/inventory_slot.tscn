@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://duywuntnhg3v6"]
+
+[ext_resource type="Texture2D" uid="uid://c7016gbaxfl5a" path="res://assets/sprites/shop/inventorySlot.png" id="1_4n48o"]
+[ext_resource type="Script" path="res://scripts/inventory/inventory_slot.gd" id="1_6ujsx"]
+[ext_resource type="Texture2D" uid="uid://jy4u06nawx5f" path="res://assets/sprites/shop/Health potion.png" id="2_dn243"]
+[ext_resource type="FontFile" uid="uid://d242n1riswosw" path="res://fonts/PixelOperator8.ttf" id="3_qkdg8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sl28l"]
+atlas = ExtResource("2_dn243")
+
+[node name="InventorySlot" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_6ujsx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_4n48o")
+centered = false
+vframes = 2
+frame = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_sl28l")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("3_qkdg8")
+theme_override_font_sizes/font_size = 8
+text = "3"
+horizontal_alignment = 2
+vertical_alignment = 2

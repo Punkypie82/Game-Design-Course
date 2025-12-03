@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://b267inckepk7m"]
+
+[ext_resource type="Script" path="res://scripts/GUI/pause_menu.gd" id="1_ux1q5"]
+[ext_resource type="PackedScene" uid="uid://dt8cuy83fhojn" path="res://scenes/GUI/panel_gui.tscn" id="2_hblk1"]
+[ext_resource type="FontFile" uid="uid://8rwpnqvox0uj" path="res://fonts/PixelOperator8-Bold.ttf" id="3_iao3f"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+offset = Vector2(150, 100)
+transform = Transform2D(1, 0, 0, 1, 150, 100)
+script = ExtResource("1_ux1q5")
+
+[node name="PanelGUI" parent="." instance=ExtResource("2_hblk1")]
+script = null
+
+[node name="Label" type="Label" parent="PanelGUI"]
+modulate = Color(1, 1, 1, 0.839216)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -392.0
+offset_right = 279.0
+offset_bottom = -321.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_iao3f")
+theme_override_font_sizes/font_size = 70
+text = "[Paused]"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelGUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -74.0
+offset_right = 274.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="ButtonSave" type="Button" parent="PanelGUI/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_iao3f")
+theme_override_font_sizes/font_size = 60
+text = "Save"
+
+[node name="ButtonLoad" type="Button" parent="PanelGUI/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_iao3f")
+theme_override_font_sizes/font_size = 60
+text = "Load"
+
+[connection signal="pressed" from="PanelGUI/VBoxContainer/ButtonSave" to="." method="_on_button_save_pressed"]
+[connection signal="pressed" from="PanelGUI/VBoxContainer/ButtonLoad" to="." method="_on_button_load_pressed"]

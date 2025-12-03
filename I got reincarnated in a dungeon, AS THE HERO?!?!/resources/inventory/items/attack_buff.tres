@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://c4arf6rhfm5je"]
+
+[ext_resource type="Script" path="res://scripts/inventory/item_effects/item_effect.gd" id="1_7d25q"]
+[ext_resource type="Script" path="res://scripts/inventory/item_effects/item_effect_attack_buff.gd" id="2_2uaty"]
+[ext_resource type="Script" path="res://scripts/inventory/item_data.gd" id="3_7bobh"]
+[ext_resource type="Texture2D" uid="uid://ct58x1kxh70kx" path="res://assets/sprites/shop/espada.png" id="4_oibnu"]
+
+[sub_resource type="Resource" id="Resource_44olo"]
+script = ExtResource("2_2uaty")
+attack_buff_amount = 3
+use_description = ""
+
+[resource]
+script = ExtResource("3_7bobh")
+name = "Attack Buff"
+description = "+3 Attack Damage"
+price = 60
+price_multiplier = 1.3
+max_price = 400
+texture = ExtResource("4_oibnu")
+effects = Array[ExtResource("1_7d25q")]([SubResource("Resource_44olo")])

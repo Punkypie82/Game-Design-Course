@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqnxts860f7s0"]
+
+[ext_resource type="FontFile" uid="uid://8rwpnqvox0uj" path="res://fonts/PixelOperator8-Bold.ttf" id="1_bs1lb"]
+[ext_resource type="Script" path="res://scripts/GUI/player_hud.gd" id="1_vje62"]
+[ext_resource type="Texture2D" uid="uid://bwl4p7qdfdj87" path="res://assets/sprites/shop/coin.png" id="2_ashhq"]
+
+[node name="PlayerHud" type="CanvasLayer"]
+process_mode = 3
+process_priority = 1
+script = ExtResource("1_vje62")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Health" type="Label" parent="Control"]
+modulate = Color(1, 1, 1, 0.729412)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -496.0
+offset_top = 32.0
+offset_right = -33.0
+offset_bottom = 83.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_bs1lb")
+theme_override_font_sizes/font_size = 50
+text = "100/100 HP"
+horizontal_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(64, 64)
+scale = Vector2(8, 8)
+texture = ExtResource("2_ashhq")
+hframes = 12
+
+[node name="Cash" type="Label" parent="Control"]
+modulate = Color(1, 1, 1, 0.729412)
+layout_mode = 2
+offset_left = 120.0
+offset_top = 48.0
+offset_right = 448.0
+offset_bottom = 99.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_bs1lb")
+theme_override_font_sizes/font_size = 50
+text = "0"

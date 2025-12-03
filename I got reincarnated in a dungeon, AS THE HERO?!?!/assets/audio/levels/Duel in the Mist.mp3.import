@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cckvu2s52uktb"
+path="res://.godot/imported/Duel in the Mist.mp3-f76f55a4f84ff9386f59de0a0ddc0e8f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/levels/Duel in the Mist.mp3"
+dest_files=["res://.godot/imported/Duel in the Mist.mp3-f76f55a4f84ff9386f59de0a0ddc0e8f.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

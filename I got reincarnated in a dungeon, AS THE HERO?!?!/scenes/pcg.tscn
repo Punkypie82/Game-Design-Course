@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn3fhrujk28h6"]
+
+[ext_resource type="Script" path="res://scripts/pcg.gd" id="1_cc2k3"]
+[ext_resource type="PackedScene" uid="uid://dguwje2c33lk4" path="res://scenes/persistent_data_handler/persistent_data_handler.tscn" id="2_v45h7"]
+
+[node name="PCG" type="Node"]
+script = ExtResource("1_cc2k3")
+
+[node name="pcg_completed_data" parent="." instance=ExtResource("2_v45h7")]
+
+[node name="slime_spawn_count" parent="." instance=ExtResource("2_v45h7")]
+
+[node name="goblin_spawn_count" parent="." instance=ExtResource("2_v45h7")]

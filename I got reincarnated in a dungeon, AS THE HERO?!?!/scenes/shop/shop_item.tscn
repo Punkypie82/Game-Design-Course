@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://dr2d8pd0tguen"]
+
+[ext_resource type="Texture2D" uid="uid://jy4u06nawx5f" path="res://assets/sprites/shop/Health potion.png" id="1_8t4x5"]
+[ext_resource type="FontFile" uid="uid://d242n1riswosw" path="res://fonts/PixelOperator8.ttf" id="1_ft13h"]
+[ext_resource type="Script" path="res://scripts/shop/shop_item.gd" id="1_p1ygw"]
+[ext_resource type="FontFile" uid="uid://8rwpnqvox0uj" path="res://fonts/PixelOperator8-Bold.ttf" id="2_udoty"]
+[ext_resource type="Texture2D" uid="uid://bwl4p7qdfdj87" path="res://assets/sprites/shop/coin.png" id="5_w14i8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kyby"]
+bg_color = Color(0.666667, 0.482353, 0.972549, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 10
+anti_aliasing = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3pbj"]
+atlas = ExtResource("5_w14i8")
+region = Rect2(0, 0, 16, 16)
+
+[node name="Shop Item" type="PanelContainer"]
+custom_minimum_size = Vector2(800, 200)
+offset_right = 800.0
+offset_bottom = 200.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0kyby")
+script = ExtResource("1_p1ygw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Texture" type="TextureRect" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_8t4x5")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Header" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.560784, 1, 0.870588, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_udoty")
+theme_override_font_sizes/font_size = 25
+text = "Heading 1"
+autowrap_mode = 3
+
+[node name="Description" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.560784, 1, 0.870588, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_fonts/font = ExtResource("1_ft13h")
+theme_override_font_sizes/font_size = 18
+text = "Heading 2"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_ft13h")
+theme_override_font_sizes/font_size = 24
+text = "Purchase"
+icon = SubResource("AtlasTexture_c3pbj")
+expand_icon = true
+
+[connection signal="pressed" from="HBoxContainer/MarginContainer2/VBoxContainer/Button" to="." method="_on_button_pressed"]

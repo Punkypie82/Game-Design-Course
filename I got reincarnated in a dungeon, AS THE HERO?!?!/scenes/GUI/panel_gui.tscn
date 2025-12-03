@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt8cuy83fhojn"]
+
+[ext_resource type="Texture2D" uid="uid://buwsmk4c4tipy" path="res://assets/sprites/shop/InventoryRect.png" id="1_7ret3"]
+[ext_resource type="Script" path="res://scripts/GUI/panel_gui.gd" id="1_tkxtp"]
+
+[node name="PanelGUI" type="Control"]
+custom_minimum_size = Vector2(1992, 1104)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1992.0
+offset_bottom = 1104.0
+script = ExtResource("1_tkxtp")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 249.0
+offset_bottom = 138.0
+scale = Vector2(8, 8)
+texture = ExtResource("1_7ret3")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
