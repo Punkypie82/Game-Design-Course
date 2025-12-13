@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://2ovhx3f2b6ue"]
+
+[ext_resource type="Script" path="res://scripts/fog_teleporter.gd" id="1_di7oy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hn5ey"]
+size = Vector2(48, 8)
+
+[node name="FogTeleporter" type="Node2D"]
+script = ExtResource("1_di7oy")
+
+[node name="EntranceDetector" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntranceDetector"]
+shape = SubResource("RectangleShape2D_hn5ey")
+
+[node name="TeleportDetector1" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportDetector1"]
+shape = SubResource("RectangleShape2D_hn5ey")
+
+[node name="TeleportDetector2" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportDetector2"]
+shape = SubResource("RectangleShape2D_hn5ey")
+
+[node name="TeleportDetector3" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportDetector3"]
+shape = SubResource("RectangleShape2D_hn5ey")
+
+[node name="DestinationPoint" type="Marker2D" parent="."]
+position = Vector2(0, -15)
+
+[connection signal="body_entered" from="EntranceDetector" to="." method="_on_entrance_detector_body_entered"]
+[connection signal="body_entered" from="TeleportDetector1" to="." method="_on_teleport_detector_1_body_entered"]
+[connection signal="body_entered" from="TeleportDetector2" to="." method="_on_teleport_detector_2_body_entered"]
+[connection signal="body_entered" from="TeleportDetector3" to="." method="_on_teleport_detector_3_body_entered"]

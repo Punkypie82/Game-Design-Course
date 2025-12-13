@@ -7,7 +7,7 @@ extends Area2D
 var playerInDetectionZone = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group('Player') and game_manager.has_all_items():
+	if body.is_in_group('Player'):
 		label.visible = true
 		label.text = 'there is a clue on the wall\n<tap> to view the clue'
 		playerInDetectionZone = true

@@ -60,7 +60,7 @@ func _input(event: InputEvent) -> void:
 			elif stage == 7:
 				if answer.text == 'شمع':
 					dragon_label.text = 'تو توانستی از هر سه چیستان عبور کنی،\nاکنون دگمه Enter را فشار بده و از آزادی خود لذت ببر...'
-					dragon_label.add_theme_color_override("font_color", Color(0, 1, 0))
+					dragon_label.add_theme_color_override("font_color", Color(0, 1, 1))
 					answer.visible = false
 				else:
 					dragon_label.text = 'پاسخ اشتباه بود. اکنون میسوزی.'

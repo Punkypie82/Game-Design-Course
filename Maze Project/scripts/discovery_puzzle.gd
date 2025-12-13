@@ -11,7 +11,7 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed('next_stage'):
 			if answer.text == '9248':
 				discovery_label.text = 'شما رمز را صحیح تشخیص دادین.'
-				discovery_label.add_theme_color_override("font_color", Color(0, 1, 0))
+				discovery_label.add_theme_color_override("font_color", Color(0, 1, 1))
 				var timer = Timer.new()
 				timer.one_shot = true
 				timer.wait_time = 1
